@@ -687,4 +687,98 @@
       <div class="timeline-item">
         <div class="timeline-mark">II</div>
         <div class="timeline-text">
-          <strong>The First "
+          <strong>The First "I Love You"</strong>
+          Three little words that changed everything. My heart still skips a beat remembering that moment — the nervous smile, the racing pulse, the joy that flooded through me when you said it back.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-mark">III</div>
+        <div class="timeline-text">
+          <strong>The Day We Said "I Do"</strong>
+          Under the open sky and the blessings of our loved ones, I promised to stand beside you through every joy and every storm. That was — and always will be — the best decision of my life.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-mark">IV</div>
+        <div class="timeline-text">
+          <strong>Building Our Little World</strong>
+          Every quiet morning, every shared cup of tea, every silly argument, every late-night laugh — we have been building a world that is entirely our own. A world that feels like home.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-mark">V</div>
+        <div class="timeline-text">
+          <strong>Today & Forever</strong>
+          Celebrating you, my love. Here's to every birthday we will celebrate together, every dream we will chase, and every memory still waiting to be made. Our story is only just beginning.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SHARE BAR -->
+    <div class="share-bar">
+      <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+      <button class="share-btn" onclick="shareWhatsApp()">💬 Share on WhatsApp</button>
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Link copied to clipboard 💕</div>
+
+  <script>
+    // Show toast message
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.remove('show'), 2400);
+    }
+
+    // Make a wish animation
+    function blowCandles() {
+      const w = document.getElementById('wishMessage');
+      w.classList.add('show');
+      setTimeout(() => w.classList.remove('show'), 4000);
+    }
+
+    // Copy current page link
+    function copyLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url)
+          .then(() => showToast('Link copied! Send it with love 💌'))
+          .catch(() => fallbackCopy(url));
+      } else {
+        fallbackCopy(url);
+      }
+    }
+    function fallbackCopy(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        showToast('Link copied! Send it with love 💌');
+      } catch (e) {
+        showToast('Copy failed — please copy the URL manually');
+      }
+      document.body.removeChild(ta);
+    }
+
+    // Share on WhatsApp
+    function shareWhatsApp() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent("Happy Birthday, my dearest husband! 💕 I made this just for you: ");
+      window.open(`https://wa.me/?text=${text}${url}`, '_blank');
+    }
+  </script>
+</body>
+</html>
