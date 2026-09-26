@@ -33,21 +33,14 @@
       line-height: 1.7;
     }
 
-    /* ============ BACKGROUND LAYERS (BEHIND CONTENT) ============ */
-    .hearts-rain,
-    .flowers-rain,
-    .sparkles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
+    /* BACKGROUND LAYERS */
+    .hearts-rain, .flowers-rain, .sparkles {
+      position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
     }
 
     /* FALLING HEARTS */
     .heart-float {
-      position: absolute;
-      top: -60px;
+      position: absolute; top: -60px;
       color: rgba(217, 122, 149, 0.55);
       font-size: 1.2rem;
       animation: fallHeart linear infinite;
@@ -76,8 +69,7 @@
 
     /* FALLING FLOWERS */
     .flower {
-      position: absolute;
-      top: -60px;
+      position: absolute; top: -60px;
       font-size: 1.4rem;
       animation: fallFlower linear infinite;
       opacity: 0.8;
@@ -126,13 +118,8 @@
     .sparkle:nth-child(7){top:30%;left:55%;animation-delay:2.8s;}
     .sparkle:nth-child(8){top:50%;left:35%;animation-delay:3.8s;}
 
-    /* ============ CONTENT LAYER (IN FRONT) ============ */
-    .container {
-      position: relative;
-      z-index: 10;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    /* CONTENT LAYER */
+    .container { position: relative; z-index: 10; max-width: 900px; margin: 0 auto; }
 
     /* HERO CARD */
     .card {
@@ -142,9 +129,7 @@
       padding: 3.5rem 2.5rem 3rem;
       text-align: center;
       position: relative;
-      box-shadow:
-        0 35px 80px rgba(170, 70, 104, 0.28),
-        0 0 0 1px rgba(212, 175, 106, 0.45);
+      box-shadow: 0 35px 80px rgba(170, 70, 104, 0.28), 0 0 0 1px rgba(212, 175, 106, 0.45);
       border: 1px solid rgba(212, 175, 106, 0.5);
       margin-bottom: 3rem;
     }
@@ -175,8 +160,7 @@
     }
 
     .hero-photo {
-      width: 220px;
-      height: 220px;
+      width: 220px; height: 220px;
       margin: 0 auto 2rem;
       border-radius: 50%;
       overflow: hidden;
@@ -497,6 +481,7 @@
       padding-top: 0.4rem;
       letter-spacing: 0.2rem;
       font-weight: 600;
+      min-width: 42px;
     }
     .timeline-text {
       font-size: 1.1rem;
@@ -685,7 +670,7 @@
       <div class="photo-frame"><img src="photo5.jpg" alt="Memory 5"></div>
     </div>
 
-    <!-- TIMELINE -->
+    <!-- EXPANDED TIMELINE — 8 milestones -->
     <h2 class="section-title">Our Journey</h2>
     <p class="section-sub">A story I would relive a thousand times</p>
 
@@ -694,9 +679,12 @@
         <div class="timeline-mark">I</div>
         <div class="timeline-text">
           <strong>The Day We Met</strong>
-          The moment our eyes first met, something in my heart quietly whispered — "This is him. This is your forever."
+          The moment our eyes first met, something in my heart quietly whispered — "This is him. This is your forever." From that very first hello, my world felt different, warmer, and infinitely more beautiful.
         </div>
       </div>
+
       <div class="timeline-item">
         <div class="timeline-mark">II</div>
-        <div class="tim
+        <div class="timeline-text">
+          <strong>Our First Conversation</strong>
+          We talked for hours — about everything and nothing. Time stood still. I remember smiling at my phone like a fool, not knowing yet that I was already falling for you.
