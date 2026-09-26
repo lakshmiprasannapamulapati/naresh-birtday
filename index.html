@@ -33,7 +33,7 @@
       line-height: 1.7;
     }
 
-    /* ---- BACKGROUND LAYERS (behind everything) ---- */
+    /* BACKGROUND LAYERS — behind everything */
     .hearts-rain,
     .flowers-rain,
     .sparkles {
@@ -41,14 +41,14 @@
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      z-index: 0; /* BEHIND the content */
+      z-index: 0;
     }
 
     /* FLOATING HEARTS */
     .heart-float {
       position: absolute;
       top: -60px;
-      color: rgba(217, 122, 149, 0.5);
+      color: rgba(217, 122, 149, 0.55);
       font-size: 1.2rem;
       animation: fallHeart linear infinite;
       text-shadow: 0 0 8px rgba(255, 200, 220, 0.6);
@@ -56,9 +56,9 @@
     }
     @keyframes fallHeart {
       0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-      10%  { opacity: 0.8; }
+      10%  { opacity: 0.85; }
       50%  { transform: translateY(50vh) translateX(40px) rotate(180deg); }
-      90%  { opacity: 0.55; }
+      90%  { opacity: 0.6; }
       100% { transform: translateY(110vh) translateX(-30px) rotate(360deg); opacity: 0; }
     }
     .heart-float:nth-child(1)  { left: 4%;  animation-duration: 14s; animation-delay: 0s;   font-size: 1.4rem; }
@@ -126,10 +126,10 @@
     .sparkle:nth-child(7){top:30%;left:55%;animation-delay:2.8s;}
     .sparkle:nth-child(8){top:50%;left:35%;animation-delay:3.8s;}
 
-    /* ---- CONTENT LAYER (in front of everything) ---- */
+    /* CONTENT LAYER — in front of everything */
     .container {
       position: relative;
-      z-index: 10; /* IN FRONT of the flowers */
+      z-index: 10;
       max-width: 900px;
       margin: 0 auto;
     }
@@ -579,7 +579,7 @@
 </head>
 <body>
 
-  <!-- BACKGROUND LAYERS (behind content) -->
+  <!-- BACKGROUND: Hearts -->
   <div class="hearts-rain">
     <div class="heart-float">💕</div>
     <div class="heart-float">💗</div>
@@ -595,6 +595,7 @@
     <div class="heart-float">❤️</div>
   </div>
 
+  <!-- BACKGROUND: Flowers -->
   <div class="flowers-rain">
     <div class="flower">🌸</div>
     <div class="flower">🌷</div>
@@ -610,6 +611,7 @@
     <div class="flower">🌹</div>
   </div>
 
+  <!-- BACKGROUND: Sparkles -->
   <div class="sparkles">
     <div class="sparkle">✦</div><div class="sparkle">✧</div>
     <div class="sparkle">✦</div><div class="sparkle">✧</div>
@@ -672,4 +674,38 @@
     </div>
 
     <!-- PHOTO GALLERY -->
-    <h2 class="section-title
+    <h2 class="section-title">Cherished Moments</h2>
+    <p class="section-sub">A few of my favourite memories with you</p>
+
+    <div class="gallery">
+      <div class="photo-frame"><img src="photo1.jpg" alt="Memory 1"></div>
+      <div class="photo-frame"><img src="photo2.jpg" alt="Memory 2"></div>
+      <div class="photo-frame"><img src="photo3.jpg" alt="Memory 3"></div>
+      <div class="photo-frame"><img src="photo4.jpg" alt="Memory 4"></div>
+      <div class="photo-frame"><img src="photo5.jpg" alt="Memory 5"></div>
+    </div>
+
+    <!-- TIMELINE -->
+    <h2 class="section-title">Our Journey</h2>
+    <p class="section-sub">A story I would relive a thousand times</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-mark">I</div>
+        <div class="timeline-text">
+          <strong>The Day We Met</strong>
+          The moment our eyes first met, something in my heart quietly whispered — "This is him. This is your forever."
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-mark">II</div>
+        <div class="timeline-text">
+          <strong>The First "I Love You"</strong>
+          Three little words that changed everything. My heart still skips a beat remembering that moment.
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-mark">III</div>
+        <div class="timeline-text">
+          <strong>The Day We Said "I Do"</strong>
+          The day I promised to stand beside you through every joy and every storm — the best
