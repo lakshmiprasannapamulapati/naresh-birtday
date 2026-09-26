@@ -1,204 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love 💕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <title>Happy Birthday My Love ❤️</title>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1e1a2e 0%, #2a1e3a 40%, #3d2b4a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    /* floating hearts background */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Georgia, 'Times New Roman', serif;
-            background: linear-gradient(135deg, #1a001f, #4b123c, #170019);
-            overflow: hidden;
-            color: white;
-        }
+    .heart {
+      position: absolute;
+      color: rgba(255, 200, 220, 0.2);
+      font-size: 1.8rem;
+      animation: floatUp 12s infinite ease-in-out;
+      user-select: none;
+    }
 
-        .card {
-            width: 90%;
-            max-width: 700px;
-            padding: 50px 30px;
-            text-align: center;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 2;
-        }
+    @keyframes floatUp {
+      0% {
+        transform: translateY(110vh) rotate(0deg) scale(0.7);
+        opacity: 0.2;
+      }
+      30% { opacity: 0.5; }
+      70% { opacity: 0.3; }
+      100% {
+        transform: translateY(-20vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+      }
+    }
 
-        .small {
-            font-size: 20px;
-            letter-spacing: 4px;
-            color: #ffd6e7;
-        }
+    .heart:nth-child(1) { left: 5%; animation-duration: 14s; animation-delay: 0s; }
+    .heart:nth-child(2) { left: 18%; animation-duration: 11s; animation-delay: 2s; font-size: 2.5rem; }
+    .heart:nth-child(3) { left: 33%; animation-duration: 16s; animation-delay: 4s; }
+    .heart:nth-child(4) { left: 52%; animation-duration: 12s; animation-delay: 1s; font-size: 2.8rem; }
+    .heart:nth-child(5) { left: 67%; animation-duration: 15s; animation-delay: 5s; }
+    .heart:nth-child(6) { left: 81%; animation-duration: 13s; animation-delay: 3s; font-size: 2.2rem; }
+    .heart:nth-child(7) { left: 94%; animation-duration: 17s; animation-delay: 6s; }
+    .heart:nth-child(8) { left: 44%; animation-duration: 10s; animation-delay: 7s; font-size: 2rem; }
+    .heart:nth-child(9) { left: 73%; animation-duration: 18s; animation-delay: 8s; }
 
-        h1 {
-            font-size: 55px;
-            margin: 15px 0;
-            color: #fff;
-            text-shadow: 0 0 20px #ff77aa;
-        }
+    /* main card */
+    .birthday-card {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+      width: 100%;
+      background: rgba(255, 245, 250, 0.09);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 48px;
+      padding: 3.5rem 2.8rem;
+      box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 220, 240, 0.15), 0 0 40px rgba(230, 130, 180, 0.3);
+      text-align: center;
+      border: 1px solid rgba(255, 215, 230, 0.2);
+      animation: cardGlow 3s infinite alternate;
+    }
 
-        h2 {
-            font-size: 32px;
-            color: #ffb6d5;
-            margin-bottom: 25px;
-        }
+    @keyframes cardGlow {
+      0% { box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 220, 240, 0.15), 0 0 30px rgba(230, 130, 180, 0.3); }
+      100% { box-shadow: 0 30px 55px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 220, 240, 0.3), 0 0 55px rgba(240, 140, 190, 0.6); }
+    }
 
-        .heart {
-            font-size: 65px;
-            animation: heartbeat 1.3s infinite;
-        }
+    .birthday-icon {
+      font-size: 4.5rem;
+      line-height: 1;
+      display: inline-block;
+      animation: bounce 2s infinite;
+      filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
+      margin-bottom: 0.5rem;
+    }
 
-        .message {
-            font-size: 21px;
-            line-height: 1.8;
-            color: #fff4f8;
-            margin: 25px auto;
-            max-width: 600px;
-        }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
 
-        .quote {
-            font-size: 24px;
-            font-style: italic;
-            color: #ffd1e3;
-            margin: 30px 0;
-        }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: #fff0f5;
+      text-shadow: 0 0 20px #ff9bc0, 0 0 40px #d46b9c, 0 5px 15px rgba(0, 0, 0, 0.6);
+      letter-spacing: 2px;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
 
-        .love {
-            font-size: 19px;
-            line-height: 1.7;
-            color: #ffe8f0;
-        }
+    .subhead {
+      font-size: 1.4rem;
+      color: #fad1e6;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 10px rgba(200, 80, 130, 0.6);
+    }
 
-        .signature {
-            margin-top: 30px;
-            font-size: 24px;
-            color: #ffb0ce;
-            font-style: italic;
-        }
+    .message {
+      color: #f5e6f0;
+      font-size: 1.3rem;
+      line-height: 1.9;
+      font-weight: 400;
+      margin: 1.8rem 0 2.2rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
+    .message p {
+      margin-bottom: 1.2rem;
+      font-weight: 500;
+    }
 
-        .floating-heart {
-            position: absolute;
-            bottom: -50px;
-            font-size: 25px;
-            animation: float 8s linear infinite;
-            opacity: 0.7;
-        }
+    .message .highlight {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffe2f0;
+      display: inline-block;
+      margin: 0.4rem 0;
+      text-shadow: 0 0 15px #ff9bc0, 0 0 30px #b3568a;
+    }
 
-        .h1 { left: 10%; animation-delay: 1s; }
-        .h2 { left: 25%; animation-delay: 4s; }
-        .h3 { left: 50%; animation-delay: 2s; }
-        .h4 { left: 70%; animation-delay: 5s; }
-        .h5 { left: 90%; animation-delay: 3s; }
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0 1.8rem;
+      color: #eaaac9;
+      font-size: 1.6rem;
+    }
 
-        @keyframes float {
-            0% {
-                bottom: -50px;
-                transform: translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(40px) rotate(20deg);
-            }
-            100% {
-                bottom: 110%;
-                transform: translateX(-40px) rotate(-20deg);
-            }
-        }
+    .divider span {
+      width: 70px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #eb9fc4, #eb9fc4, transparent);
+      border-radius: 10px;
+    }
 
-        .sparkle {
-            color: #ffd700;
-        }
+    .love-note {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #ffd9e8;
+      text-shadow: 0 0 12px #ff7eb3;
+      letter-spacing: 1px;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 40px;
-            }
+    .signature {
+      margin-top: 2.5rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #ffd0e2;
+      text-shadow: 0 0 10px #d46b9c;
+      border-top: 1px dashed rgba(255, 200, 220, 0.4);
+      padding-top: 1.8rem;
+      display: inline-block;
+    }
 
-            h2 {
-                font-size: 25px;
-            }
+    /* share bar */
+    .share-bar {
+      position: relative;
+      z-index: 10;
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
 
-            .message {
-                font-size: 18px;
-            }
+    .share-btn {
+      background: rgba(255, 220, 235, 0.12);
+      border: 1px solid rgba(255, 200, 220, 0.35);
+      color: #ffe2f0;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
 
-            .quote {
-                font-size: 20px;
-            }
-        }
-    </style>
+    .share-btn:hover {
+      background: rgba(255, 200, 225, 0.25);
+      border-color: rgba(255, 220, 240, 0.7);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(200, 80, 130, 0.3);
+    }
+
+    .share-btn:active {
+      transform: translateY(0);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(60, 30, 50, 0.95);
+      color: #ffe2f0;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 180, 210, 0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 100;
+      opacity: 0;
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .birthday-card {
+        padding: 2.2rem 1.5rem;
+        border-radius: 32px;
+      }
+      h1 { font-size: 3.2rem; }
+      .subhead { font-size: 1.1rem; letter-spacing: 2px; }
+      .message { font-size: 1.1rem; line-height: 1.8; }
+      .message .highlight { font-size: 1.8rem; }
+      .birthday-icon { font-size: 3.5rem; }
+      .signature { font-size: 1.7rem; }
+      .love-note { font-size: 1.3rem; }
+      .share-btn { padding: 0.6rem 1.1rem; font-size: 0.85rem; }
+    }
+
+    @media (max-width: 380px) {
+      h1 { font-size: 2.6rem; }
+      .message .highlight { font-size: 1.5rem; }
+    }
+  </style>
 </head>
-
 <body>
+  <!-- floating hearts background -->
+  <div class="hearts">
+    <div class="heart">❤️</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💞</div>
+    <div class="heart">💘</div>
+    <div class="heart">💝</div>
+  </div>
 
-    <!-- Floating Hearts -->
-    <div class="floating-heart h1">❤️</div>
-    <div class="floating-heart h2">💕</div>
-    <div class="floating-heart h3">❤️</div>
-    <div class="floating-heart h4">💖</div>
-    <div class="floating-heart h5">💕</div>
+  <!-- main birthday card -->
+  <div class="birthday-card">
+    <div class="birthday-icon">🎂👑</div>
+    <h1>Happy Birthday,<br>My Love</h1>
+    <div class="subhead">To my husband, my best friend</div>
 
-    <div class="card">
-
-        <div class="small">TO THE LOVE OF MY LIFE</div>
-
-        <div class="heart">❤️</div>
-
-        <h1>Happy Birthday</h1>
-
-        <h2>My Wonderful Husband 💕</h2>
-
-        <p class="message">
-            Happy Birthday to the man who makes my world brighter,
-            my heart happier, and my life more beautiful.
-        </p>
-
-        <p class="quote">
-            "You are not just my husband, you are my best friend,
-            my strength, my happiness, and my forever."
-        </p>
-
-        <p class="love">
-            Thank you for every smile, every hug, every little moment,
-            and for always being there by my side.
-            <br><br>
-            Life with you is a beautiful journey, and I feel lucky
-            every single day to walk through it with you.
-            <br><br>
-            May this birthday bring you all the happiness,
-            success and love that your heart deserves.
-        </p>
-
-        <p class="signature">
-            Forever yours, with all my love ❤️
-        </p>
-
-        <div class="sparkle">
-            ✨ Happy Birthday, My Love ✨
-        </div>
-
+    <div class="message">
+      <p>Today is all about <strong>you</strong> — the man who makes every day brighter, every laugh louder, and every moment sweeter.</p>
+      <p>You are my <span class="highlight">greatest adventure</span> and my safest place.</p>
+      <p>Thank you for your patience, your kindness, and the way you love me even when I’m not easy to love.</p>
+      <p>I fall for you again and again — with every sunrise, every silly joke, every quiet evening.</p>
+      <p>Here’s to another year of us, of dreams, of laughter, and of a love that keeps growing stronger.</p>
     </div>
 
+    <div class="divider">
+      <span></span> ✦ <span></span>
+    </div>
+
+    <div class="love-note">
+      “You are my today and all of my tomorrows.”
+    </div>
+
+    <div class="signature">
+      Forever yours,<br>Your Wife 💕
+    </div>
+  </div>
+
+  <!-- share bar -->
+  <div class="share-bar">
+    <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
+    <button class="share-btn" onclick="shareWhatsApp()">💬 WhatsApp</button>
+    <button class="share-btn" onclick="shareTwitter()">🐦 Twitter</button>
+  </div>
+
+  <!-- toast notification -->
+  <div class="toast" id="toast">Link copied to clipboard! 💕</div>
+
+  <script>
+    // Show toast function
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2200);
+    }
+
+    // Copy current page link to clipboard
+    function copyLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url)
+          .then(() => showToast('Link copied! Send it to your love 💌'))
+          .catch(() => fallbackCopy(url));
+      } else {
+        fallbackCopy(url);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand('copy');
+        showToast('Link copied! Send it to your love 💌');
+      } catch (e) {
+        showToast('Could not copy — please copy the URL manually.');
+      }
+      document.body.removeChild(textarea);
+    }
+
+    // Share on WhatsApp
+    function shareWhatsApp() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent("Happy Birthday, my love! 💕 I made this just for you: ");
+      window.open(`https://wa.me/?text=${text}${url}`, '_blank');
+    }
+
+    // Share on Twitter / X
+    function shareTwitter() {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent("Happy Birthday to my amazing husband! 🎂💕 This one's for you: ");
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+    }
+  </script>
 </body>
 </html>
