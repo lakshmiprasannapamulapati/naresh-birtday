@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday My Love ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #1a001f, #4b123c, #170019);
+            overflow: hidden;
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 700px;
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .small {
+            font-size: 20px;
+            letter-spacing: 4px;
+            color: #ffd6e7;
+        }
+
+        h1 {
+            font-size: 55px;
+            margin: 15px 0;
+            color: #fff;
+            text-shadow: 0 0 20px #ff77aa;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #ffb6d5;
+            margin-bottom: 25px;
+        }
+
+        .heart {
+            font-size: 65px;
+            animation: heartbeat 1.3s infinite;
+        }
+
+        .message {
+            font-size: 21px;
+            line-height: 1.8;
+            color: #fff4f8;
+            margin: 25px auto;
+            max-width: 600px;
+        }
+
+        .quote {
+            font-size: 24px;
+            font-style: italic;
+            color: #ffd1e3;
+            margin: 30px 0;
+        }
+
+        .love {
+            font-size: 19px;
+            line-height: 1.7;
+            color: #ffe8f0;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-size: 24px;
+            color: #ffb0ce;
+            font-style: italic;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            font-size: 25px;
+            animation: float 8s linear infinite;
+            opacity: 0.7;
+        }
+
+        .h1 { left: 10%; animation-delay: 1s; }
+        .h2 { left: 25%; animation-delay: 4s; }
+        .h3 { left: 50%; animation-delay: 2s; }
+        .h4 { left: 70%; animation-delay: 5s; }
+        .h5 { left: 90%; animation-delay: 3s; }
+
+        @keyframes float {
+            0% {
+                bottom: -50px;
+                transform: translateX(0) rotate(0deg);
+            }
+            50% {
+                transform: translateX(40px) rotate(20deg);
+            }
+            100% {
+                bottom: 110%;
+                transform: translateX(-40px) rotate(-20deg);
+            }
+        }
+
+        .sparkle {
+            color: #ffd700;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            .message {
+                font-size: 18px;
+            }
+
+            .quote {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="floating-heart h1">❤️</div>
+    <div class="floating-heart h2">💕</div>
+    <div class="floating-heart h3">❤️</div>
+    <div class="floating-heart h4">💖</div>
+    <div class="floating-heart h5">💕</div>
+
+    <div class="card">
+
+        <div class="small">TO THE LOVE OF MY LIFE</div>
+
+        <div class="heart">❤️</div>
+
+        <h1>Happy Birthday</h1>
+
+        <h2>My Wonderful Husband 💕</h2>
+
+        <p class="message">
+            Happy Birthday to the man who makes my world brighter,
+            my heart happier, and my life more beautiful.
+        </p>
+
+        <p class="quote">
+            "You are not just my husband, you are my best friend,
+            my strength, my happiness, and my forever."
+        </p>
+
+        <p class="love">
+            Thank you for every smile, every hug, every little moment,
+            and for always being there by my side.
+            <br><br>
+            Life with you is a beautiful journey, and I feel lucky
+            every single day to walk through it with you.
+            <br><br>
+            May this birthday bring you all the happiness,
+            success and love that your heart deserves.
+        </p>
+
+        <p class="signature">
+            Forever yours, with all my love ❤️
+        </p>
+
+        <div class="sparkle">
+            ✨ Happy Birthday, My Love ✨
+        </div>
+
+    </div>
+
+</body>
+</html>
