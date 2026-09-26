@@ -6,369 +6,532 @@
   <title>Happy Birthday, My Love 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Cormorant+SC:wght@500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --wine: #5a1e2e;
+      --wine-deep: #3a0f1c;
+      --cream: #f6ead9;
+      --cream-soft: #efdfc8;
+      --gold: #c9a961;
+      --gold-light: #e6cf9a;
+      --rose: #b96a7a;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       min-height: 100vh;
-      background: linear-gradient(145deg, #1a0f1f 0%, #2a1e3a 40%, #3d2b4a 100%);
-      font-family: 'Quicksand', sans-serif;
-      padding: 1.5rem;
+      background:
+        radial-gradient(ellipse at top, #6b2537 0%, #3a0f1c 45%, #1d0710 100%);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--cream);
+      padding: 2rem 1rem;
       position: relative;
       overflow-x: hidden;
-      color: #f5e6f0;
+      line-height: 1.7;
     }
 
-    .hearts { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-    .heart {
+    /* subtle vintage paper texture */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 3px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 3px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* soft candle-lit vignette */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* floating petals */
+    .petals { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .petal {
       position: absolute;
-      color: rgba(255, 200, 220, 0.25);
-      font-size: 1.8rem;
-      animation: floatUp 12s infinite ease-in-out;
+      color: rgba(220, 150, 170, 0.35);
+      font-size: 1.4rem;
+      animation: drift 18s infinite ease-in-out;
       user-select: none;
     }
-    @keyframes floatUp {
-      0%   { transform: translateY(110vh) rotate(0deg) scale(0.7); opacity: 0.2; }
-      30%  { opacity: 0.55; }
-      70%  { opacity: 0.3; }
-      100% { transform: translateY(-20vh) rotate(360deg) scale(1.1); opacity: 0; }
+    @keyframes drift {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      15%  { opacity: 0.55; }
+      85%  { opacity: 0.35; }
+      100% { transform: translateY(-15vh) rotate(400deg); opacity: 0; }
     }
-    .heart:nth-child(1){left:5%;animation-duration:14s;animation-delay:0s;}
-    .heart:nth-child(2){left:18%;animation-duration:11s;animation-delay:2s;font-size:2.5rem;}
-    .heart:nth-child(3){left:33%;animation-duration:16s;animation-delay:4s;}
-    .heart:nth-child(4){left:52%;animation-duration:12s;animation-delay:1s;font-size:2.8rem;}
-    .heart:nth-child(5){left:67%;animation-duration:15s;animation-delay:5s;}
-    .heart:nth-child(6){left:81%;animation-duration:13s;animation-delay:3s;font-size:2.2rem;}
-    .heart:nth-child(7){left:94%;animation-duration:17s;animation-delay:6s;}
-    .heart:nth-child(8){left:44%;animation-duration:10s;animation-delay:7s;font-size:2rem;}
-    .heart:nth-child(9){left:73%;animation-duration:18s;animation-delay:8s;}
+    .petal:nth-child(1){left:6%;animation-duration:20s;animation-delay:0s;}
+    .petal:nth-child(2){left:22%;animation-duration:17s;animation-delay:3s;font-size:1.1rem;}
+    .petal:nth-child(3){left:39%;animation-duration:22s;animation-delay:6s;}
+    .petal:nth-child(4){left:58%;animation-duration:19s;animation-delay:1s;font-size:1.6rem;}
+    .petal:nth-child(5){left:74%;animation-duration:16s;animation-delay:4s;}
+    .petal:nth-child(6){left:88%;animation-duration:21s;animation-delay:7s;font-size:1.2rem;}
+    .petal:nth-child(7){left:49%;animation-duration:24s;animation-delay:9s;}
 
-    .container { position: relative; z-index: 10; max-width: 900px; margin: 0 auto; }
+    .container {
+      position: relative;
+      z-index: 10;
+      max-width: 880px;
+      margin: 0 auto;
+    }
 
-    .birthday-card {
-      background: rgba(255, 245, 250, 0.09);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 48px;
-      padding: 3.5rem 2.8rem;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 220, 240, 0.18), 0 0 50px rgba(230, 130, 180, 0.4);
+    /* ============ HERO CARD ============ */
+    .card {
+      background:
+        linear-gradient(160deg, rgba(246, 234, 217, 0.96), rgba(239, 223, 200, 0.92));
+      color: var(--wine-deep);
+      border-radius: 4px;
+      padding: 4rem 3rem 3.5rem;
       text-align: center;
-      border: 1px solid rgba(255, 215, 230, 0.22);
-      animation: cardGlow 3s infinite alternate;
+      position: relative;
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(201, 169, 97, 0.5),
+        inset 0 0 60px rgba(180, 130, 90, 0.08);
+      border: 1px solid rgba(201, 169, 97, 0.4);
       margin-bottom: 3rem;
     }
-    @keyframes cardGlow {
-      0%   { box-shadow: 0 30px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(255,220,240,.15), 0 0 30px rgba(230,130,180,.3); }
-      100% { box-shadow: 0 30px 55px rgba(0,0,0,.7), 0 0 0 1px rgba(255,220,240,.3),  0 0 60px rgba(240,140,190,.6); }
+
+    /* gold corner ornaments */
+    .card::before,
+    .card::after {
+      content: '';
+      position: absolute;
+      width: 90px; height: 90px;
+      border: 2px solid var(--gold);
+      pointer-events: none;
+    }
+    .card::before { top: 14px;    left: 14px;    border-right: none; border-bottom: none; }
+    .card::after  { bottom: 14px; right: 14px;   border-left: none;  border-top: none; }
+
+    /* inner double border */
+    .card-inner {
+      border: 1px solid rgba(201, 169, 97, 0.55);
+      padding: 3rem 2rem 2.5rem;
+      position: relative;
+    }
+    .card-inner::before {
+      content: '❦';
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      color: var(--gold);
+      padding: 0 1rem;
+      font-size: 1.4rem;
     }
 
+    /* circular hero photo with gold ring */
     .hero-photo {
       width: 220px;
       height: 220px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 2rem;
       border-radius: 50%;
       overflow: hidden;
-      border: 5px solid rgba(255, 200, 220, 0.55);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 45px rgba(255, 140, 190, 0.7);
-      animation: pulsePhoto 3s infinite alternate;
+      position: relative;
+      padding: 8px;
+      background: linear-gradient(135deg, #e6cf9a, #c9a961, #a8863f, #e6cf9a);
+      box-shadow:
+        0 20px 45px rgba(58, 15, 28, 0.5),
+        0 0 0 1px rgba(255,255,255,0.4);
     }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    @keyframes pulsePhoto {
-      0%   { box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 30px rgba(255,140,190,0.5); }
-      100% { box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 60px rgba(255,140,190,0.9); }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 3px solid var(--cream);
     }
 
-    .birthday-icon {
-      font-size: 3.5rem; line-height: 1; display: inline-block;
-      animation: bounce 2s infinite;
-      filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
-      margin-bottom: 0.5rem;
+    .ornament {
+      color: var(--gold);
+      font-size: 1.6rem;
+      letter-spacing: 0.5rem;
+      margin: 0.5rem 0 1rem;
+      display: block;
     }
-    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 5rem;
-      font-weight: 400;
-      color: #fff0f5;
-      text-shadow: 0 0 20px #ff9bc0, 0 0 45px #d46b9c, 0 5px 15px rgba(0,0,0,0.6);
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 3.6rem;
+      color: var(--wine);
+      letter-spacing: 1px;
       line-height: 1.15;
-      margin: 0.3rem 0;
+      margin: 0.3rem 0 0.6rem;
     }
+    h1 .accent {
+      display: block;
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.6rem;
+      color: var(--wine-deep);
+      font-weight: 400;
+      margin: 0.2rem 0;
+      line-height: 1;
+    }
+
     .subhead {
-      font-size: 1.15rem; color: #fad1e6; font-weight: 500;
-      letter-spacing: 4px; text-transform: uppercase;
-      margin-bottom: 2rem; text-shadow: 0 2px 10px rgba(200,80,130,0.6);
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.5rem;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+    }
+    .subhead span {
+      display: inline-block;
+      width: 40px; height: 1px;
+      background: var(--rose);
+      opacity: 0.6;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin: 2rem 0;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .message {
-      font-size: 1.18rem;
-      line-height: 2;
-      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 1.95;
+      color: #4a2028;
       text-align: left;
-      margin: 1.5rem auto;
-      max-width: 720px;
-      color: #f7e9f2;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      max-width: 660px;
+      margin: 0 auto;
     }
-    .message p { margin-bottom: 1.4rem; }
+    .message p { margin-bottom: 1.3rem; }
     .message p:first-letter {
       font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: #ffc9e0;
+      font-size: 3.6rem;
+      color: var(--wine);
       float: left;
-      line-height: 0.85;
-      padding: 0.25rem 0.6rem 0 0;
-      text-shadow: 0 0 15px #ff7eb3;
+      line-height: 0.8;
+      padding: 0.35rem 0.7rem 0 0;
+    }
+    .message em {
+      color: var(--wine);
+      font-style: italic;
+      font-weight: 500;
     }
     .highlight {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.9rem;
-      font-weight: 700;
-      color: #ffe2f0;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.85rem;
+      color: var(--wine);
       display: inline-block;
-      margin: 0.3rem 0;
-      text-shadow: 0 0 15px #ff9bc0, 0 0 30px #b3568a;
-    }
-    .quote {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.7rem;
-      color: #ffd9e8;
-      text-align: center;
-      margin: 2rem auto;
-      padding: 1.2rem 1.5rem;
-      border-left: 3px solid #eb9fc4;
-      border-right: 3px solid #eb9fc4;
-      max-width: 600px;
-      text-shadow: 0 0 12px #ff7eb3;
+      margin: 0.1rem 0.2rem;
+      line-height: 1;
     }
 
-    .section-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.2rem;
-      color: #ffe2f0;
+    .quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: var(--wine);
       text-align: center;
-      margin: 1rem 0 0.5rem;
-      text-shadow: 0 0 18px #ff9bc0, 0 0 35px #b3568a;
+      margin: 2.5rem auto 0;
+      padding: 1.5rem 1.5rem;
+      max-width: 560px;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      line-height: 1.5;
+      position: relative;
+    }
+    .quote::before,
+    .quote::after {
+      content: '❧';
+      position: absolute;
+      color: var(--gold);
+      font-size: 1rem;
+      background: var(--cream);
+      padding: 0 0.5rem;
+    }
+    .quote::before { top: -0.7rem; left: 50%; transform: translateX(-50%); }
+    .quote::after  { bottom: -0.7rem; left: 50%; transform: translateX(-50%); }
+
+    .love-note {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.1rem;
+      color: var(--wine);
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .signature {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px dashed rgba(90, 30, 46, 0.35);
+      text-align: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: var(--wine);
+    }
+    .signature small {
+      display: block;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.4rem;
+      color: var(--rose);
+      margin-top: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    /* ============ SECTION HEADERS ============ */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 500;
+      color: var(--cream);
+      text-align: center;
+      margin: 3rem 0 0.5rem;
+      letter-spacing: 1px;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px; height: 1px;
+      background: var(--gold);
+      margin: 1rem auto 0;
     }
     .section-sub {
       text-align: center;
-      font-size: 0.95rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #eaaac9;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.4rem;
+      color: var(--gold-light);
       margin-bottom: 2rem;
+      text-transform: uppercase;
     }
 
+    /* ============ GALLERY ============ */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-      margin: 0 auto 3rem;
-      max-width: 900px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.3rem;
+      margin: 0 auto 2rem;
     }
     .photo-frame {
       position: relative;
       aspect-ratio: 1 / 1;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 2px solid rgba(255, 200, 220, 0.35);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.55), 0 0 25px rgba(230,130,180,0.35);
-      background: rgba(255,240,250,0.05);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
+      padding: 10px;
+      background: linear-gradient(135deg, #e6cf9a, #c9a961, #8c6f35, #c9a961, #e6cf9a);
+      border-radius: 2px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.55);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
     }
     .photo-frame:hover {
-      transform: scale(1.04) rotate(-1deg);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 45px rgba(255,140,190,0.7);
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 30px rgba(201, 169, 97, 0.4);
     }
     .photo-frame img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%;
+      object-fit: cover;
       display: block;
-      transition: transform 0.6s ease;
+      border: 1px solid rgba(90, 30, 46, 0.3);
+      filter: sepia(0.12) contrast(1.02);
+      transition: filter 0.5s ease;
     }
-    .photo-frame:hover img { transform: scale(1.08); }
-    .photo-frame::after {
-      content: '❤';
-      position: absolute;
-      bottom: 8px; right: 12px;
-      color: #ff9bc0;
-      font-size: 1.4rem;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      text-shadow: 0 0 10px #ff7eb3;
-    }
-    .photo-frame:hover::after { opacity: 1; }
+    .photo-frame:hover img { filter: sepia(0) contrast(1.05); }
 
+    /* ============ TIMELINE ============ */
     .timeline {
-      background: rgba(255, 245, 250, 0.06);
-      backdrop-filter: blur(10px);
-      border-radius: 32px;
-      padding: 2.5rem 2rem;
-      border: 1px solid rgba(255, 200, 220, 0.2);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      background: linear-gradient(160deg, rgba(246, 234, 217, 0.96), rgba(239, 223, 200, 0.92));
+      color: var(--wine-deep);
+      padding: 3rem 2.5rem;
+      border: 1px solid rgba(201, 169, 97, 0.5);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.55);
       margin-bottom: 3rem;
+      position: relative;
     }
+    .timeline::before,
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 60px; height: 60px;
+      border: 1px solid var(--gold);
+      pointer-events: none;
+    }
+    .timeline::before { top: 10px;    left: 10px;    border-right: none; border-bottom: none; }
+    .timeline::after  { bottom: 10px; right: 10px;   border-left: none;  border-top: none; }
+
     .timeline-item {
       display: flex;
-      gap: 1.2rem;
-      padding: 1rem 0;
+      gap: 1.5rem;
+      padding: 1.2rem 0;
       align-items: flex-start;
+      border-bottom: 1px dashed rgba(90, 30, 46, 0.25);
     }
+    .timeline-item:last-child { border-bottom: none; }
+
     .timeline-heart {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       flex-shrink: 0;
-      animation: heartbeat 1.6s infinite;
-      filter: drop-shadow(0 0 8px #ff7eb3);
-    }
-    @keyframes heartbeat {
-      0%,100% { transform: scale(1); }
-      50%     { transform: scale(1.2); }
+      color: var(--wine);
+      padding-top: 0.2rem;
     }
     .timeline-text {
-      font-size: 1.05rem;
-      line-height: 1.7;
+      font-size: 1.1rem;
+      line-height: 1.75;
+      color: #4a2028;
+      font-style: italic;
     }
     .timeline-text strong {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.5rem;
-      color: #ffc9e0;
+      font-family: 'Playfair Display', serif;
+      font-style: normal;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--wine);
       display: block;
-      margin-bottom: 0.2rem;
-      text-shadow: 0 0 10px #ff9bc0;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.5px;
     }
 
-    .love-note {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #ffd9e8;
-      text-shadow: 0 0 15px #ff7eb3, 0 0 30px #b3568a;
-      letter-spacing: 1px;
-      text-align: center;
-      margin: 2rem auto 0.5rem;
-    }
-    .signature {
-      margin-top: 2rem;
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.6rem;
-      color: #ffd0e2;
-      text-shadow: 0 0 15px #d46b9c;
-      border-top: 1px dashed rgba(255,200,220,0.4);
-      padding-top: 1.8rem;
-      display: block;
-      text-align: center;
-    }
-    .signature small {
-      display: block;
-      font-family: 'Quicksand', sans-serif;
-      font-size: 0.9rem;
-      letter-spacing: 4px;
-      color: #d99ab8;
-      margin-top: 0.5rem;
-      text-transform: uppercase;
-      text-shadow: none;
-    }
-
+    /* ============ SHARE BAR ============ */
     .share-bar {
       display: flex; justify-content: center;
-      gap: 0.8rem; flex-wrap: wrap;
+      gap: 1rem; flex-wrap: wrap;
       margin: 2rem 0 1rem;
     }
     .share-btn {
-      background: rgba(255, 220, 235, 0.12);
-      border: 1px solid rgba(255, 200, 220, 0.35);
-      color: #ffe2f0;
-      padding: 0.7rem 1.5rem;
-      border-radius: 50px;
-      font-family: 'Quicksand', sans-serif;
-      font-weight: 600; font-size: 0.95rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 0.7rem 1.6rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
       cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.25s ease;
-      text-decoration: none;
+      transition: all 0.3s ease;
     }
     .share-btn:hover {
-      background: rgba(255, 200, 225, 0.25);
-      border-color: rgba(255, 220, 240, 0.7);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(200, 80, 130, 0.4);
+      background: var(--gold);
+      color: var(--wine-deep);
+      box-shadow: 0 0 25px rgba(201, 169, 97, 0.6);
     }
 
     .toast {
       position: fixed; bottom: 30px; left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: rgba(60, 30, 50, 0.95);
-      color: #ffe2f0; padding: 0.9rem 1.8rem;
-      border-radius: 50px; font-size: 1rem; font-weight: 600;
-      border: 1px solid rgba(255, 180, 210, 0.5);
+      background: var(--cream);
+      color: var(--wine-deep);
+      padding: 0.9rem 2rem;
+      font-family: 'Cormorant SC', serif;
+      letter-spacing: 0.2rem;
+      border: 1px solid var(--gold);
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       z-index: 100; opacity: 0;
-      transition: all 0.4s ease; pointer-events: none;
+      transition: all 0.4s ease;
+      pointer-events: none;
+      text-transform: uppercase;
+      font-size: 0.8rem;
     }
     .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-    @media (max-width: 600px) {
-      .birthday-card { padding: 2.2rem 1.5rem; border-radius: 32px; }
-      h1 { font-size: 3.4rem; }
-      .subhead { font-size: 0.95rem; letter-spacing: 2px; }
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 620px) {
+      .card { padding: 2.5rem 1rem; }
+      .card-inner { padding: 2rem 1.2rem; }
+      h1 { font-size: 2.5rem; }
+      h1 .accent { font-size: 3.4rem; }
+      .subhead { font-size: 0.75rem; letter-spacing: 0.3rem; }
       .message { font-size: 1.05rem; line-height: 1.85; }
-      .message .highlight { font-size: 1.6rem; }
+      .message p:first-letter { font-size: 2.8rem; }
+      .highlight { font-size: 1.5rem; }
       .hero-photo { width: 160px; height: 160px; }
-      .birthday-icon { font-size: 2.8rem; }
-      .section-title { font-size: 2.5rem; }
-      .signature { font-size: 2rem; }
-      .love-note { font-size: 1.6rem; }
-      .quote { font-size: 1.35rem; }
+      .section-title { font-size: 2rem; }
+      .quote { font-size: 1.1rem; }
+      .timeline { padding: 2rem 1.2rem; }
+      .timeline-text { font-size: 1rem; }
+      .timeline-text strong { font-size: 1.15rem; }
+      .signature { font-size: 1.8rem; }
+      .love-note { font-size: 1.7rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="hearts">
-    <div class="heart">❤️</div><div class="heart">💖</div><div class="heart">💗</div>
-    <div class="heart">💓</div><div class="heart">❤️</div><div class="heart">💕</div>
-    <div class="heart">💞</div><div class="heart">💘</div><div class="heart">💝</div>
+  <div class="petals">
+    <div class="petal">🌹</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌺</div>
+    <div class="petal">🌷</div>
+    <div class="petal">🌹</div>
+    <div class="petal">🌸</div>
+    <div class="petal">🌺</div>
   </div>
 
   <div class="container">
 
-    <!-- HERO CARD -->
-    <div class="birthday-card">
-      <div class="hero-photo">
-        <img src="photo1.jpg" alt="Naresh and Me">
-      </div>
+    <!-- ============ HERO CARD ============ -->
+    <div class="card">
+      <div class="card-inner">
 
-      <div class="birthday-icon">🎂👑</div>
-      <h1>Happy Birthday,<br>My Love</h1>
-      <div class="subhead">To My Husband • My Best Friend • My Forever</div>
-
-      <div class="message">
-        <p>My dearest Naresh, today the world celebrates the day you were born — but for me, every single day since I met you has been a celebration. You are the reason my heart smiles, the reason my soul feels at home, and the reason I believe in a love that grows deeper with every passing sunrise.</p>
-
-        <p>You are not just my husband — you are my <span class="highlight">safe place</span>, my loudest cheerleader, my calmest storm, and my most beautiful adventure. In your arms, I found a home I never knew I was searching for.</p>
-
-        <p>Thank you for every laugh you've gifted me, every tear you've wiped away, every silly fight we've laughed about later, and every quiet moment that spoke louder than words. Thank you for choosing me — again and again — with all my flaws, my moods, and my endless love for you.</p>
-
-        <p>If I could, I would give you the moon and every star in the sky, but since I can't — I give you <span class="highlight">my whole heart</span>, forever and always.</p>
-
-        <p>Here's to another year of us — of dreams we haven't dreamt yet, of memories we haven't made yet, and of a love story that gets better with every chapter.</p>
-
-        <div class="quote">
-          "You are my today, my tomorrow,<br>and every lifetime after that."
+        <div class="hero-photo">
+          <img src="photo1.jpg" alt="Naresh and Me">
         </div>
-      </div>
 
-      <div class="love-note">💕 Happy Birthday, my forever person 💕</div>
+        <div class="ornament">✦ ❦ ✦</div>
+        <h1>
+          Happy Birthday
+          <span class="accent">My Dearest Love</span>
+        </h1>
+        <div class="subhead">
+          <span></span> To My Husband <span></span>
+        </div>
 
-      <div class="signature">
-        Forever Yours,
-        <small>— Your Wife 💕</small>
+        <div class="divider">❧</div>
+
+        <div class="message">
+          <p>My dearest Naresh, today the world celebrates the day you were born — but for me, every single day since I met you has been a quiet celebration of the love we share. You are the reason my heart finds peace, the reason my soul feels at home, and the reason I believe in a love that grows deeper with every passing season.</p>
+
+          <p>You are not just my husband — you are my <span class="highlight">safe harbour</span>, my truest friend, my calmest storm, and my most beautiful adventure. In your arms, I found a home I never knew I was searching for.</p>
+
+          <p>Thank you for every laugh you have gifted me, every tear you have gently wiped away, every silly quarrel we have laughed about later, and every quiet moment that spoke louder than any words ever could. Thank you for choosing me — <em>again and again</em> — with all my flaws, my moods, and my endless love for you.</p>
+
+          <p>If I could, I would give you the moon and every star in the sky. But since I cannot, I give you <span class="highlight">my whole heart</span> — forever, and always.</p>
+
+          <p>Here is to another year of us — of dreams we have not dreamt yet, of memories we have not made yet, and of a love story that grows more beautiful with every chapter.</p>
+
+          <div class="quote">
+            "You are my today, my tomorrow,<br>
+            and every lifetime after that."
+          </div>
+        </div>
+
+        <div class="love-note">Happy Birthday, my forever person</div>
+
+        <div class="signature">
+          Forever Yours,
+          <small>— Your Wife</small>
+        </div>
+
       </div>
     </div>
 
-    <!-- PHOTO GALLERY (4 photos only) -->
+    <!-- ============ PHOTO GALLERY ============ -->
     <h2 class="section-title">Our Beautiful Moments</h2>
     <p class="section-sub">Every picture, a heartbeat</p>
 
@@ -377,59 +540,60 @@
       <div class="photo-frame"><img src="photo2.jpg" alt="Our Memory 2"></div>
       <div class="photo-frame"><img src="photo3.jpg" alt="Our Memory 3"></div>
       <div class="photo-frame"><img src="photo4.jpg" alt="Our Memory 4"></div>
+      <div class="photo-frame"><img src="photo5.jpg" alt="Our Memory 5"></div>
     </div>
 
-    <!-- TIMELINE -->
+    <!-- ============ TIMELINE ============ -->
     <h2 class="section-title">Our Love Story</h2>
-    <p class="section-sub">A journey I'd relive a thousand times</p>
+    <p class="section-sub">A journey I would relive a thousand times</p>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="timeline-heart">💖</div>
+        <div class="timeline-heart">❦</div>
         <div class="timeline-text">
           <strong>The Day We Met</strong>
-          The moment our eyes first met, something in my heart whispered — "This is him. This is your forever."
+          The moment our eyes first met, something in my heart quietly whispered — "This is him. This is your forever."
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-heart">💗</div>
+        <div class="timeline-heart">❦</div>
         <div class="timeline-text">
           <strong>The First "I Love You"</strong>
           Three little words that changed everything. My heart still skips a beat remembering that moment.
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-heart">💕</div>
+        <div class="timeline-heart">❦</div>
         <div class="timeline-text">
           <strong>The Day We Said "I Do"</strong>
           The day I promised to love you through every joy and every storm — the best decision of my life.
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-heart">💞</div>
+        <div class="timeline-heart">❦</div>
         <div class="timeline-text">
           <strong>Every Day Since</strong>
-          Every laugh, every fight, every hug, every quiet morning — building a love story that keeps getting better.
+          Every laugh, every quarrel, every embrace, every quiet morning — building a love story that keeps getting better.
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-heart">💘</div>
+        <div class="timeline-heart">❦</div>
         <div class="timeline-text">
           <strong>Today & Forever</strong>
-          Celebrating you, my love. Here's to every birthday we'll celebrate together — and every memory still waiting to be made.
+          Celebrating you, my love. Here is to every birthday we will celebrate together — and every memory still waiting to be made.
         </div>
       </div>
     </div>
 
-    <!-- SHARE BUTTONS -->
+    <!-- ============ SHARE ============ -->
     <div class="share-bar">
-      <button class="share-btn" onclick="copyLink()">🔗 Copy Link</button>
-      <button class="share-btn" onclick="shareWhatsApp()">💬 Share on WhatsApp</button>
+      <button class="share-btn" onclick="copyLink()">Copy Link</button>
+      <button class="share-btn" onclick="shareWhatsApp()">Share on WhatsApp</button>
     </div>
 
   </div>
 
-  <div class="toast" id="toast">Link copied! 💕</div>
+  <div class="toast" id="toast">Link copied</div>
 
   <script>
     function showToast(msg) {
@@ -442,20 +606,20 @@
     function copyLink() {
       const url = window.location.href;
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(url).then(() => showToast('Link copied! 💌')).catch(() => fb(url));
+        navigator.clipboard.writeText(url).then(() => showToast('Link copied')).catch(() => fb(url));
       } else fb(url);
     }
     function fb(text) {
       const ta = document.createElement('textarea');
       ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
       document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); showToast('Link copied! 💌'); }
-      catch(e) { showToast('Copy failed — please copy manually'); }
+      try { document.execCommand('copy'); showToast('Link copied'); }
+      catch(e) { showToast('Copy failed'); }
       document.body.removeChild(ta);
     }
     function shareWhatsApp() {
       const url = encodeURIComponent(window.location.href);
-      const text = encodeURIComponent("Happy Birthday, my love! 💕 I made this just for you: ");
+      const text = encodeURIComponent("Happy Birthday, my love. I made this just for you: ");
       window.open(`https://wa.me/?text=${text}${url}`, '_blank');
     }
   </script>
